@@ -31,7 +31,11 @@ public class Two {
                 }
             }
         }
-        System.out.println(Arrays.toString(numbers));
+        System.out.println("The numbers in length ascending order: " + Arrays.toString(numbers));
+        System.out.print("The numbers in length descending order: ");
+        for (int i = numbers.length - 1; i >= 0; i--) {
+            System.out.print(numbers[i] + ", ");
+        }
     }
 
     public static int getCountsOfDigits(int number) {
