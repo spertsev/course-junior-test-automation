@@ -13,7 +13,7 @@ public class Five {
         Scanner scanner = new Scanner(System.in);
 
         while (programIsWorking) {
-            System.out.print("Input the month number:");
+            System.out.print("Input a month number:");
             int numberOfMonth = scanner.nextInt();
             try {
                 System.out.println(Month.of(numberOfMonth));
