@@ -10,7 +10,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Three {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Input the given amount of the random numbers:");
+        System.out.print("Input a number of random numbers:");
         int amountOfNumbers = scanner.nextInt();
         int[] numbers = new int[amountOfNumbers];
 

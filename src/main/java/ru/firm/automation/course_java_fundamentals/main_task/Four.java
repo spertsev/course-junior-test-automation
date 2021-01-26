@@ -8,7 +8,7 @@ public class Four {
     public static void main(String[] args) {
         int sum = 0;
         int multiplication = 1;
-        int argAsInt = 0;
+        int integerArgument = 0;
 
         if (args.length == 0) {
             System.out.println("There are no the arguments");
@@ -17,13 +17,13 @@ public class Four {
 
         for (String arg : args) {
             try {
-                argAsInt = Integer.parseInt(arg);
+                integerArgument = Integer.parseInt(arg);
             } catch (NumberFormatException e) {
                 System.out.println("Type of '" + arg + "' argument is not integer. The caught exception: " + e.fillInStackTrace());
                 continue;
             }
-            sum = sum + argAsInt;
-            multiplication = multiplication * argAsInt;
+            sum = sum + integerArgument;
+            multiplication = multiplication * integerArgument;
         }
 
         System.out.println("Sum of the integer arguments =" + sum);

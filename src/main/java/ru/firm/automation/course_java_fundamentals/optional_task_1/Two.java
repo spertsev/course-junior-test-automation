@@ -19,15 +19,15 @@ public class Two {
             numbers[i] = scanner.nextInt();
         }
 
-        boolean numbersAreSorted = false;
-        while (!numbersAreSorted) {
-            numbersAreSorted = true;
+        boolean areNumbersSorted = false;
+        while (!areNumbersSorted) {
+            areNumbersSorted = true;
             for (int i = 1; i < numbers.length; i++) {
                 if (getCountsOfDigits(numbers[i]) < getCountsOfDigits(numbers[i - 1])) {
                     int temp = numbers[i];
                     numbers[i] = numbers[i - 1];
                     numbers[i - 1] = temp;
-                    numbersAreSorted = false;
+                    areNumbersSorted = false;
                 }
             }
         }

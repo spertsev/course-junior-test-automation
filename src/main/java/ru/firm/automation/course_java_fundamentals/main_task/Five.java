@@ -9,15 +9,15 @@ import java.time.Month;
 
 public class Five {
     public static void main(String[] args) {
-        boolean programIsWorking = true;
+        boolean isProgramWorking = true;
         Scanner scanner = new Scanner(System.in);
 
-        while (programIsWorking) {
+        while (isProgramWorking) {
             System.out.print("Input a month number:");
             int numberOfMonth = scanner.nextInt();
             try {
                 System.out.println(Month.of(numberOfMonth));
-                programIsWorking = false;
+                isProgramWorking = false;
             } catch (Exception e) {
                 System.out.println("The number you've input is wrong, please try again");
             }
