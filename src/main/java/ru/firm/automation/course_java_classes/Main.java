@@ -12,28 +12,29 @@ package ru.firm.automation.course_java_classes;
  *  b) список покупателей, у которых номер кредитной карточки находится в заданном интервале.
  */
 
+import java.math.BigInteger;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
     public static void main(String[] args) {
-        int elementsNumber = 7;
-        CustomersArray customersArray = new CustomersArray(elementsNumber);
+        int customersNumber = 7;
+        CustomersArray customersArray = new CustomersArray(customersNumber);
 
         String[] surnames = {"Ivanov", "Petrov", "Sidorov"};
         String[] names = {"Ivan", "Petr", "Sidor"};
         String[] patronymics = {"Ivanovich", "Petrovich", "Sidorovich"};
         String[] residenceAddresses = {"Gagarina 10", "Gorkogo 11", "Minina 12"};
-        for (int i = 0; i < elementsNumber; i++) {
+        for (int i = 0; i < customersNumber; i++) {
             customersArray.setCustomerId(i, i + 1000);
             customersArray.setCustomerSurname(i, surnames[ThreadLocalRandom.current().nextInt(0, surnames.length)]);
             customersArray.setCustomerName(i, names[ThreadLocalRandom.current().nextInt(0, names.length)]);
             customersArray.setCustomerPatronymic(i, patronymics[ThreadLocalRandom.current().nextInt(0, patronymics.length)]);
             customersArray.setCustomerResidenceAddress(i, residenceAddresses[ThreadLocalRandom.current().nextInt(0, residenceAddresses.length)]);
-            customersArray.setCustomerCreditCardNumber(i, 30000 + ThreadLocalRandom.current().nextInt(1, 99));
+            customersArray.setCustomerCreditCardNumber(i, BigInteger.valueOf(1000000000000000L).add(BigInteger.valueOf(ThreadLocalRandom.current().nextInt(1, 99))));
             customersArray.setCustomerBankAccountNumber(i, ThreadLocalRandom.current().nextInt(555555555, 999999999));
         }
 
-        customersArray.getCustomersInAlphabetOrder();
-        customersArray.getCustomersWhoseCardNumberInRange(30000, 30050);
+        customersArray.printCustomersInAlphabetOrder();
+        customersArray.printCustomersWhoseCardNumberInRange(1000000000000000L, 1000000000000055L);
     }
 }

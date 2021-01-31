@@ -12,18 +12,19 @@ package ru.firm.automation.course_java_classes;
  *  b) список покупателей, у которых номер кредитной карточки находится в заданном интервале.
  */
 
+import java.math.BigInteger;
 import java.util.Arrays;
 
 public class CustomersArray {
-    private int elementsNumber;
+    private int arrayElementsNumber;
     private Customer[] customers;
 
     public CustomersArray() {
     }
 
-    public CustomersArray(int elementsNumber) {
-        this.elementsNumber = elementsNumber;
-        customers = new Customer[elementsNumber];
+    public CustomersArray(int arrayElementsNumber) {
+        this.arrayElementsNumber = arrayElementsNumber;
+        customers = new Customer[arrayElementsNumber];
         for (int i = 0; i < customers.length; i++) {
             customers[i] = new Customer();
         }
@@ -49,7 +50,7 @@ public class CustomersArray {
         customers[index].setResidenceAddress(residenceAddress);
     }
 
-    public void setCustomerCreditCardNumber(int index, int creditCardNumber) {
+    public void setCustomerCreditCardNumber(int index, BigInteger creditCardNumber) {
         customers[index].setCreditCardNumber(creditCardNumber);
     }
 
@@ -57,30 +58,32 @@ public class CustomersArray {
         customers[index].setBankAccountNumber(bankAccountNumber);
     }
 
-    public void getCustomersInAlphabetOrder() {
-        String[] surnames = new String[elementsNumber];
-        for (int i = 0; i < surnames.length; i++) {
-            surnames[i] = customers[i].getSurname();
-        }
-
+    public void printCustomersInAlphabetOrder() {
         System.out.println("\nInitial array:");
-        for (int i = 0; i < elementsNumber; i++) {
+        for (int i = 0; i < arrayElementsNumber; i++) {
             System.out.println(customers[i].toString());
         }
 
         System.out.println("\nThe customers in alphabet order:");
         Arrays.sort(customers);
-        for (int i = 0; i < elementsNumber; i++) {
+        for (int i = 0; i < arrayElementsNumber; i++) {
             System.out.println(customers[i].toString());
         }
     }
 
-    public void getCustomersWhoseCardNumberInRange(int fromNumber, int toNumber) {
-        System.out.println("\nCustomers, whose card number is in range " + fromNumber + "..." + toNumber);
-        for (int i = 0; i < elementsNumber; i++) {
-            if (customers[i].getCreditCardNumber() >= fromNumber && customers[i].getCreditCardNumber() <= toNumber) {
+    public void printCustomersWhoseCardNumberInRange(long startNumber, long endNumber) {
+        System.out.println("\nCustomers, whose card number is in range " + startNumber + "..." + endNumber);
+        boolean isCustomerWhoseCardNumberInRange = false;
+
+        for (int i = 0; i < arrayElementsNumber; i++) {
+            BigInteger currentCreditCardNumber = customers[i].getCreditCardNumber();
+            if (currentCreditCardNumber.compareTo(BigInteger.valueOf(startNumber)) >= 0 && currentCreditCardNumber.compareTo(BigInteger.valueOf(endNumber)) <= 0) {
                 System.out.println(customers[i].toString());
+                isCustomerWhoseCardNumberInRange = true;
             }
+        }
+        if (!isCustomerWhoseCardNumberInRange) {
+            System.out.println("There are no such customers");
         }
     }
 

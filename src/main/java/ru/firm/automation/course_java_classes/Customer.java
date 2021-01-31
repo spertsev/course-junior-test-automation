@@ -12,13 +12,15 @@ package ru.firm.automation.course_java_classes;
  *  b) список покупателей, у которых номер кредитной карточки находится в заданном интервале.
  */
 
+import java.math.BigInteger;
+
 public class Customer implements Comparable<Customer> {
     private int id;
     private String surname;
     private String name;
     private String patronymic;
     private String residenceAddress;
-    private int creditCardNumber;
+    private BigInteger creditCardNumber;
     private int bankAccountNumber;
 
     public Customer() {
@@ -31,7 +33,7 @@ public class Customer implements Comparable<Customer> {
         this.patronymic = patronymic;
     }
 
-    public Customer(int id, String surname, String name, String patronymic, String residenceAddress, int creditCardNumber, int bankAccountNumber) {
+    public Customer(int id, String surname, String name, String patronymic, String residenceAddress, BigInteger creditCardNumber, int bankAccountNumber) {
         this.id = id;
         this.surname = surname;
         this.name = name;
@@ -81,11 +83,11 @@ public class Customer implements Comparable<Customer> {
         this.residenceAddress = residenceAddress;
     }
 
-    public int getCreditCardNumber() {
+    public BigInteger getCreditCardNumber() {
         return creditCardNumber;
     }
 
-    public void setCreditCardNumber(int creditCardNumber) {
+    public void setCreditCardNumber(BigInteger creditCardNumber) {
         this.creditCardNumber = creditCardNumber;
     }
 
@@ -112,31 +114,31 @@ public class Customer implements Comparable<Customer> {
 
     @Override
     public int compareTo(Customer customer) {
-        int result;
+        int returnAccordingToCompareToContract;
 
         if (surname.compareTo(customer.getSurname()) > 0) {
-            result = 1;
+            returnAccordingToCompareToContract = 1;
         } else if (surname.compareTo(customer.getSurname()) < 0) {
-            result = -1;
+            returnAccordingToCompareToContract = -1;
         } else {
 
             if (name.compareTo(customer.getName()) > 0) {
-                result = 1;
+                returnAccordingToCompareToContract = 1;
             } else if (name.compareTo(customer.getName()) < 0) {
-                result = -1;
+                returnAccordingToCompareToContract = -1;
             } else {
 
                 if (patronymic.compareTo(customer.getName()) > 0) {
-                    result = 1;
+                    returnAccordingToCompareToContract = 1;
                 } else if (patronymic.compareTo(customer.getName()) < 0) {
-                    result = -1;
+                    returnAccordingToCompareToContract = -1;
                 } else {
-                    result = 0;
+                    returnAccordingToCompareToContract = 0;
                 }
 
             }
         }
 
-        return result;
+        return returnAccordingToCompareToContract;
     }
 }
