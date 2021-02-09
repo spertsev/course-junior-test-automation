@@ -34,6 +34,7 @@ public class Main {
             customersArray.setCustomerBankAccountNumber(i, ThreadLocalRandom.current().nextInt(555555555, 999999999));
         }
 
+        customersArray.printCustomersArray();
         customersArray.printCustomersInAlphabetOrder();
         customersArray.printCustomersWhoseCardNumberInRange(1000000000000000L, 1000000000000055L);
     }

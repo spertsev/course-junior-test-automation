@@ -59,11 +59,6 @@ public class CustomersArray {
     }
 
     public void printCustomersInAlphabetOrder() {
-        System.out.println("\nInitial array:");
-        for (int i = 0; i < arrayElementsNumber; i++) {
-            System.out.println(customers[i].toString());
-        }
-
         System.out.println("\nThe customers in alphabet order:");
         Arrays.sort(customers);
         for (int i = 0; i < arrayElementsNumber; i++) {
@@ -84,6 +79,13 @@ public class CustomersArray {
         }
         if (!isCustomerWhoseCardNumberInRange) {
             System.out.println("There are no such customers");
+        }
+    }
+
+    public void printCustomersArray() {
+        System.out.println("\nInitial array:");
+        for (int i = 0; i < arrayElementsNumber; i++) {
+            System.out.println(customers[i].toString());
         }
     }
 
