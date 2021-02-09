@@ -14,7 +14,7 @@ package ru.firm.automation.course_java_classes;
 
 import java.math.BigInteger;
 
-public class Customer implements Comparable<Customer> {
+public class Customer {
     private int id;
     private String surname;
     private String name;
@@ -112,33 +112,4 @@ public class Customer implements Comparable<Customer> {
                 '}';
     }
 
-    @Override
-    public int compareTo(Customer customer) {
-        int returnAccordingToCompareToContract;
-
-        if (surname.compareTo(customer.getSurname()) > 0) {
-            returnAccordingToCompareToContract = 1;
-        } else if (surname.compareTo(customer.getSurname()) < 0) {
-            returnAccordingToCompareToContract = -1;
-        } else {
-
-            if (name.compareTo(customer.getName()) > 0) {
-                returnAccordingToCompareToContract = 1;
-            } else if (name.compareTo(customer.getName()) < 0) {
-                returnAccordingToCompareToContract = -1;
-            } else {
-
-                if (patronymic.compareTo(customer.getName()) > 0) {
-                    returnAccordingToCompareToContract = 1;
-                } else if (patronymic.compareTo(customer.getName()) < 0) {
-                    returnAccordingToCompareToContract = -1;
-                } else {
-                    returnAccordingToCompareToContract = 0;
-                }
-
-            }
-        }
-
-        return returnAccordingToCompareToContract;
-    }
 }

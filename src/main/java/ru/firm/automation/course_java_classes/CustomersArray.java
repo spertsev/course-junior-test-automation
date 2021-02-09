@@ -14,6 +14,7 @@ package ru.firm.automation.course_java_classes;
 
 import java.math.BigInteger;
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class CustomersArray {
     private int arrayElementsNumber;
@@ -60,7 +61,7 @@ public class CustomersArray {
 
     public void printCustomersInAlphabetOrder() {
         System.out.println("\nThe customers in alphabet order:");
-        Arrays.sort(customers);
+        Arrays.sort(customers, Comparator.comparing(Customer::getSurname).thenComparing(Customer::getName).thenComparing(Customer::getPatronymic));
         for (int i = 0; i < arrayElementsNumber; i++) {
             System.out.println(customers[i].toString());
         }
